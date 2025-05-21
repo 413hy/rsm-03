@@ -411,7 +411,7 @@ body {
 }
 
 .home__img {
-  border-radius: 50%;
+  border-radius: var(--b-radius);
   animation: rotate 10s linear infinite;
 }
 
