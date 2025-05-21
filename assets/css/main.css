@@ -417,13 +417,19 @@ body {
   }
 }
 
-.home__img,
+.home__img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+
 .about__img {
   width: 300px;
   height: 300px;
   object-fit: cover;
   border-radius: var(--b-radius);
-  animation: rotate 10s linear infinite;
 }
 
 @keyframes rotate {
