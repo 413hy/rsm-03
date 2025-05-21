@@ -157,33 +157,21 @@
                     <div class="skills__content-wrapper">
                         <div class="skills__card">
                             <div class="skills__img-wrapper">
-                                <img src="assets/img/linux-logo.svg" alt="Linux Logo" class="skills__img">
+                                <img src="assets/img/linux-svgrepo-com.svg" alt="Linux Logo" class="skills__img">
                             </div>
                             <h3 class="skills__name">Linux</h3>
                         </div>
                         <div class="skills__card">
                             <div class="skills__img-wrapper">
-                                <img src="assets/img/docker-logo.svg" alt="Docker Logo" class="skills__img">
+                                <img src="assets/img/docker-svgrepo-com.svg" alt="Docker Logo" class="skills__img">
                             </div>
                             <h3 class="skills__name">Docker</h3>
                         </div>
                         <div class="skills__card">
                             <div class="skills__img-wrapper">
-                                <img src="assets/img/zabbix-logo.svg" alt="Zabbix Logo" class="skills__img">
-                            </div>
-                            <h3 class="skills__name">Zabbix</h3>
-                        </div>
-                        <div class="skills__card">
-                            <div class="skills__img-wrapper">
-                                <img src="assets/img/cloudflare-logo.svg" alt="Cloudflare Logo" class="skills__img">
+                                <img src="assets/img/cloudflare-svgrepo-com.svg" alt="Cloudflare Logo" class="skills__img">
                             </div>
                             <h3 class="skills__name">Cloudflare</h3>
-                        </div>
-                        <div class="skills__card">
-                            <div class="skills__img-wrapper">
-                                <img src="assets/img/hysteria-logo.svg" alt="Hysteria Logo" class="skills__img">
-                            </div>
-                            <h3 class="skills__name">Hysteria2</h3>
                         </div>
                     </div>
                 </div>
@@ -194,25 +182,25 @@
                     <div class="skills__content-wrapper">
                         <div class="skills__card">
                             <div class="skills__img-wrapper">
-                                <img src="assets/img/python-logo.svg" alt="Python Logo" class="skills__img">
+                                <img src="assets/img/python-svgrepo-com.svg" alt="Python Logo" class="skills__img">
                             </div>
                             <h3 class="skills__name">Python</h3>
                         </div>
                         <div class="skills__card">
                             <div class="skills__img-wrapper">
-                                <img src="assets/img/bash-logo.svg" alt="Bash Logo" class="skills__img">
+                                <img src="assets/img/terminal-svgrepo-com.svg" alt="Bash Logo" class="skills__img">
                             </div>
                             <h3 class="skills__name">Bash</h3>
                         </div>
                         <div class="skills__card">
                             <div class="skills__img-wrapper">
-                                <img src="assets/img/nodejs-logo.svg" alt="Node.js Logo" class="skills__img">
+                                <img src="assets/img/nodejs-icon-logo-svgrepo-com.svg" alt="Node.js Logo" class="skills__img">
                             </div>
                             <h3 class="skills__name">Node.js</h3>
                         </div>
                         <div class="skills__card">
                             <div class="skills__img-wrapper">
-                                <img src="assets/img/github-logo.svg" alt="GitHub Logo" class="skills__img">
+                                <img src="assets/img/github-02-svgrepo-com.svg" alt="GitHub Logo" class="skills__img">
                             </div>
                             <h3 class="skills__name">Git & GitHub</h3>
                         </div>
@@ -444,19 +432,18 @@
                 <h2 class="section__title">有岗位机会？我随时待命</h2>
             </div>
             <div class="d-grid contact__wrapper container">
-                <form action="" class="contact__form">
+                <form id="contact-form" class="contact__form">
                     <div class="form__group">
-                        <label for="" class="form__label">姓名</label>
-                        <input type="text" class="form__input" placeholder="输入您的姓名" required>
+                        <label for="name" class="form__label">姓名</label>
+                        <input type="text" id="name" name="user_name" class="form__input" placeholder="输入您的姓名" required>
                     </div>
                     <div class="form__group">
-                        <label for="" class="form__label">邮箱</label>
-                        <input type="email" class="form__input" placeholder="输入您的邮箱" required>
+                        <label for="email" class="form__label">邮箱</label>
+                        <input type="email" id="email" name="user_email" class="form__input" placeholder="输入您的邮箱" required>
                     </div>
                     <div class="form__group">
-                        <label for="" class="form__label">消息</label>
-                        <textarea class="form__input form__textarea"
-                            placeholder="我正在积极寻找网络运维相关岗位，欢迎来信交流"></textarea>
+                        <label for="message" class="form__label">消息</label>
+                        <textarea id="message" name="message" class="form__input form__textarea" placeholder="我正在积极寻找网络运维相关岗位，欢迎来信交流" required></textarea>
                     </div>
                     <button type="submit" class="btn btn--primary">
                         <i class="ri-send-plane-line"></i>发送消息
@@ -560,6 +547,30 @@
 
     <!--=================== Main JS ====================-->
     <script src="assets/js/main.js"></script>
+
+
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init('q1SANrJjxMkYbupwI');
+        })();
+    </script>
+
+    <script type="text/javascript">
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        emailjs.sendForm('service_hmiwbtp', 'template_gu4osqb', this)
+            .then(function() {
+            alert('消息发送成功！我会尽快回复您。');
+            document.getElementById('contact-form').reset(); // 发送后清空表单
+            }, function(error) {
+            alert('发送失败，请稍后再试。错误信息：' + JSON.stringify(error));
+            });
+        });
+    </script>
+  
 </body>
 
 </html>
