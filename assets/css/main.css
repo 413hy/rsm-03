@@ -403,7 +403,10 @@ body {
 
 @media screen and (max-width: 768px) {
   .home__img {
-    width: 28rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 }
 
