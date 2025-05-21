@@ -439,7 +439,8 @@ body {
 }
 
 .about__img {
-  border-radius: var(--b-radius);
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
 }
 
 /* Skills
