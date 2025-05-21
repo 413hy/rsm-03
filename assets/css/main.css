@@ -402,15 +402,26 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .home__img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
+  .home__img,
+  .about__img {
+    width: 250px;
+    height: 250px;
   }
 }
 
-.home__img {
+@media screen and (max-width: 480px) {
+  .home__img,
+  .about__img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.home__img,
+.about__img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
   border-radius: var(--b-radius);
   animation: rotate 10s linear infinite;
 }
@@ -436,11 +447,6 @@ body {
 
 .about__description {
   margin-bottom: 2rem;
-}
-
-.about__img {
-  border-radius: 50%;
-  animation: rotate 10s linear infinite;
 }
 
 /* Skills
