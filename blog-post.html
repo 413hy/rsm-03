@@ -160,10 +160,10 @@
             font-weight: 500;
             line-height: 2.1;
             padding: 2.5rem 1.5rem 1.5rem 0;
-            overflow-x: auto;
             background: #23272f;
             border-radius: 16px;
             color: #d4d4d4;
+            overflow: hidden;
         }
         .code-block-linenumbers {
             user-select: none;
@@ -192,6 +192,30 @@
             color: inherit;
             padding-left: 1rem;
             line-height: inherit;
+            overflow-x: auto;
+        }
+        .code-block-code::-webkit-scrollbar {
+            height: 10px;
+            background: transparent;
+        }
+        .code-block-code::-webkit-scrollbar-thumb {
+            background: #444a5a;
+            border-radius: 999px;
+            border: 2px solid #23272f;
+            min-width: 40px;
+        }
+        .code-block-code::-webkit-scrollbar-thumb:hover {
+            background: #5a5f73;
+        }
+        .code-block-code::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 999px;
+        }
+        
+        /* Firefox */
+        .code-block-code {
+            scrollbar-color: #444a5a #23272f;
+            scrollbar-width: thin;
         }
 
         /* 特殊字体样式 */
@@ -240,36 +264,6 @@
         .code-block-title i {
             font-size: 1.4rem;
             color: #ff69b4;
-        }
-
-        /* 代码块滚动条样式 - 极大圆角 */
-        .blog-post__content pre::-webkit-scrollbar,
-        .code-block-lines::-webkit-scrollbar {
-            height: 10px;
-            background: transparent;
-        }
-        .blog-post__content pre::-webkit-scrollbar-thumb,
-        .code-block-lines::-webkit-scrollbar-thumb {
-            background: #444a5a;
-            border-radius: 999px;
-            border: 2px solid #23272f;
-            min-width: 40px;
-        }
-        .blog-post__content pre::-webkit-scrollbar-thumb:hover,
-        .code-block-lines::-webkit-scrollbar-thumb:hover {
-            background: #5a5f73;
-        }
-        .blog-post__content pre::-webkit-scrollbar-track,
-        .code-block-lines::-webkit-scrollbar-track {
-            background: transparent;
-            border-radius: 999px;
-        }
-        .code-block-lines {
-            scrollbar-color: #444a5a #23272f;
-            scrollbar-width: thin;
-        }
-        .code-block-linenumbers {
-            border-right: none;
         }
 
         /* 链接样式 */
@@ -452,7 +446,9 @@
                 // 为代码块添加标题栏、复制按钮和行号
                 document.querySelectorAll('pre').forEach((pre) => {
                     const code = pre.querySelector('code');
-                    const codeText = code.textContent;
+                    let codeText = code.textContent;
+                    // 去除结尾多余空行，保证行号和代码一一对应
+                    codeText = codeText.replace(/\n+$/, '');
                     const lines = codeText.split('\n');
 
                     // 创建标题栏
