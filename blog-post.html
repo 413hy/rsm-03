@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--==================== Favicon ========================-->
+    <link rel="icon" href="assets/img/favicon.png" type="image/png">
+
+    <title>博客文章 - YangHE</title>
+
+    <!--=================== Google Fonts ====================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--=================== Remixicons ====================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=================== Main CSS ====================-->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/fonts.googleapis.com_css2_family=Rubik_wght@400;500;600;700&display=swap.css">
+    
+    <style>
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .blog-post__header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-post__title {
+            font-size: var(--fs-xxl);
+            color: var(--color-title);
+            margin-bottom: 1rem;
+        }
+        
+        .blog-post__meta {
+            color: var(--color-gray);
+            font-size: var(--fs-sm);
+            margin-bottom: 2rem;
+        }
+        
+        .blog-post__content {
+            font-size: var(--fs-md);
+            line-height: 1.8;
+            color: var(--color-gray);
+        }
+        
+        .blog-post__content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--b-radius);
+            margin: 2rem 0;
+        }
+        
+        .blog-post__content h2 {
+            margin: 2rem 0 1rem;
+            color: var(--color-title);
+        }
+        
+        .blog-post__content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-post__back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        
+        .blog-post__back:hover {
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!--===================== Header =====================-->
+    <header id="header" class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__brand">YangHE.</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html#home" class="nav__link">
+                            <i class="ri-home-line nav__icon"></i>
+                            首页
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">
+                            <i class="ri-user-line nav__icon"></i>
+                            关于
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#skills" class="nav__link">
+                            <i class="ri-medal-line nav__icon"></i>
+                            技能</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#service" class="nav__link">
+                            <i class="ri-briefcase-line nav__icon"></i>
+                            服务</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#portfolio" class="nav__link">
+                            <i class="ri-folders-line nav__icon"></i>
+                            作品集</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#blog" class="nav__link">
+                            <i class="ri-message-line nav__icon"></i>
+                            博客</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">
+                            <i class="ri-phone-line nav__icon"></i>
+                            联系</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav__buttons">
+                <span class="theme__toggle">
+                    <i id="theme-toggle" class="ri-moon-line"></i>
+                </span>
+                <span class="nav__toggle">
+                    <i id="nav-toggle" class="ri-menu-4-line"></i>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <!--===================== Main =====================-->
+    <main class="main">
+        <article class="blog-post section">
+            <div class="container">
+                <a href="index.html#blog" class="blog-post__back">
+                    <i class="ri-arrow-left-line"></i>
+                    返回博客列表
+                </a>
+                <div class="blog-post__header">
+                    <h1 class="blog-post__title" id="post-title"></h1>
+                    <div class="blog-post__meta" id="post-meta"></div>
+                </div>
+                <div class="blog-post__content" id="post-content"></div>
+            </div>
+        </article>
+    </main>
+
+    <!--===================== Footer =====================-->
+    <footer class="footer">
+        <div class="d-grid footer__wrapper container">
+            <div class="footer__content">
+                <h4 class="footer__name">YangHE</h4>
+                <ul class="footer__list">
+                    <li class="footer__item">
+                        <a href="index.html#home" class="footer__link">首页</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="index.html#about" class="footer__link">关于</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="index.html#skills" class="footer__link">技能</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="index.html#service" class="footer__link">服务</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="index.html#portfolio" class="footer__link">作品集</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="index.html#blog" class="footer__link">博客</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="index.html#contact" class="footer__link">联系</a>
+                    </li>
+                </ul>
+                <ul class="social__list">
+                    <li class="social__item">
+                        <a href="https://t.me/Yuuhe_bot" class="social__link">
+                            <i class="ri-telegram-line"></i>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://github.com/413hy" class="social__link">
+                            <i class="ri-github-line"></i>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="mailto:contact.yhe8714@gmail.com" class="social__link">
+                            <i class="ri-mail-line"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__copyright container">
+            <p>YangHE&copy; 版权所有 2023 Taurus Code. 保留所有权利</p>
+        </div>
+    </footer>
+
+    <a href="#" id="scrolltop" class="scrolltop">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!--=================== Main JS ====================-->
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // 获取URL参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const postFile = urlParams.get('post');
+
+        // 加载文章内容
+        async function loadPost() {
+            try {
+                const response = await fetch(postFile);
+                const text = await response.text();
+                
+                // 解析Markdown内容
+                const content = marked.parse(text);
+                
+                // 提取标题和日期
+                const titleMatch = text.match(/title: "([^"]+)"/);
+                const dateMatch = text.match(/pubDate: "([^"]+)"/);
+                
+                // 更新页面内容
+                document.getElementById('post-title').textContent = titleMatch ? titleMatch[1] : '文章标题';
+                document.getElementById('post-meta').textContent = dateMatch ? dateMatch[1] : '';
+                document.getElementById('post-content').innerHTML = content;
+                
+                // 更新页面标题
+                document.title = `${titleMatch ? titleMatch[1] : '文章标题'} - YangHE`;
+            } catch (error) {
+                console.error('Error loading post:', error);
+                document.getElementById('post-content').innerHTML = '<p>加载文章失败，请稍后重试。</p>';
+            }
+        }
+
+        // 页面加载完成后加载文章
+        window.addEventListener('load', loadPost);
+    </script>
+</body>
+
+</html> 

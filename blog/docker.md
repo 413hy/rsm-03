@@ -2,7 +2,7 @@
 title: "Docker environment"
 description: "What is Docker and how to install it"
 pubDate: " Mar 09 2025"
-image: /image/image3.png
+image: /assets/img/blog1.jpg
 categories:
   - tech
 tags:
