@@ -43,7 +43,7 @@ Docker在Windows上的适配经历了三个阶段：第一个阶段是完全不�
 
 通过将下方的代码复制到记事本中，并另存为`enable_hyper_v.cmd`，之后直接右击该脚本，通过“管理员模式”运行。
 
-````markdown mockup-code
+```markdown mockup-code
 pushd "%~dp0"
 
 dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hyper-v.txt
@@ -53,8 +53,7 @@ for /f %%i in ('findstr /i . hyper-v.txt 2^>nul') do dism /online /norestart /ad
 del hyper-v.txt
 
 Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL
-
-````
+```
 
 如果你的电脑没有Hyper-V组件，系统将会从Windows Update服务器那里更新Windows的相关组件，这可能会花费一些时间。安装完成后，系统需要重启。
 
