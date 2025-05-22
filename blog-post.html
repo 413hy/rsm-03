@@ -93,7 +93,7 @@
         .blog-post__content pre {
             position: relative;
             background: #23272f;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             margin: 2rem 0;
             padding: 0;
@@ -109,7 +109,7 @@
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
             padding: 0.9rem 1.8rem 0.9rem 2.5rem;
-            font-size: 1.13rem;
+            font-size: 1.18rem;
             font-weight: 700;
             border-bottom: none;
             position: absolute;
@@ -122,7 +122,7 @@
         }
         .code-block-header span {
             font-family: 'Inter', 'Segoe UI', 'Arial', 'sans-serif';
-            font-size: 1.13rem;
+            font-size: 1.18rem;
             font-weight: 700;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -137,7 +137,7 @@
             border-radius: 8px;
             padding: 0.18rem 0.7rem;
             cursor: pointer;
-            font-size: 1.15rem;
+            font-size: 1.18rem;
             margin-left: 1rem;
             pointer-events: auto;
             transition: background 0.18s, color 0.18s, border 0.18s;
@@ -155,14 +155,14 @@
         }
         .code-block-lines {
             display: flex;
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             font-family: 'JetBrains Mono', 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace';
             font-weight: 500;
-            line-height: 1.9;
+            line-height: 2.1;
             padding: 2.5rem 1.5rem 1.5rem 0;
             overflow-x: auto;
             background: none;
-            border-radius: 0 0 12px 12px;
+            border-radius: 0 0 16px 16px;
             color: #d4d4d4;
         }
         .code-block-linenumbers {
@@ -172,9 +172,9 @@
             min-width: 2.5rem;
             padding-right: 1rem;
             background: transparent;
-            font-size: 1.1rem;
+            font-size: 1.18rem;
             font-family: inherit;
-            border-right: 1px solid #2d2d2d;
+            border-right: none;
         }
         .code-block-code {
             white-space: pre;
@@ -235,23 +235,34 @@
             color: #ff69b4;
         }
 
-        /* 代码块滚动条样式 */
-        .blog-post__content pre::-webkit-scrollbar {
-            height: 8px;
+        /* 代码块滚动条样式 - 极大圆角 */
+        .blog-post__content pre::-webkit-scrollbar,
+        .code-block-lines::-webkit-scrollbar {
+            height: 10px;
+            background: transparent;
         }
-
-        .blog-post__content pre::-webkit-scrollbar-track {
-            background: #1e1e1e;
-            border-radius: 4px;
+        .blog-post__content pre::-webkit-scrollbar-thumb,
+        .code-block-lines::-webkit-scrollbar-thumb {
+            background: #444a5a;
+            border-radius: 999px;
+            border: 2px solid #23272f;
+            min-width: 40px;
         }
-
-        .blog-post__content pre::-webkit-scrollbar-thumb {
-            background: #3d3d3d;
-            border-radius: 4px;
+        .blog-post__content pre::-webkit-scrollbar-thumb:hover,
+        .code-block-lines::-webkit-scrollbar-thumb:hover {
+            background: #5a5f73;
         }
-
-        .blog-post__content pre::-webkit-scrollbar-thumb:hover {
-            background: #4d4d4d;
+        .blog-post__content pre::-webkit-scrollbar-track,
+        .code-block-lines::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 999px;
+        }
+        .code-block-lines {
+            scrollbar-color: #444a5a #23272f;
+            scrollbar-width: thin;
+        }
+        .code-block-linenumbers {
+            border-right: none;
         }
 
         /* 链接样式 */
@@ -265,31 +276,6 @@
         .blog-post__content a:hover {
             color: var(--color-primary-dark);
             text-decoration: underline;
-        }
-
-        .code-block-lines::-webkit-scrollbar {
-            height: 8px;
-            background: transparent;
-        }
-        .code-block-lines::-webkit-scrollbar-thumb {
-            background: #444a5a;
-            border-radius: 6px;
-            border: 2px solid #23272f;
-            min-width: 40px;
-        }
-        .code-block-lines::-webkit-scrollbar-thumb:hover {
-            background: #5a5f73;
-        }
-        .code-block-lines::-webkit-scrollbar-track {
-            background: transparent;
-            border-radius: 6px;
-        }
-        .code-block-lines {
-            scrollbar-color: #444a5a #23272f;
-            scrollbar-width: thin;
-        }
-        .code-block-linenumbers {
-            border-right: none;
         }
     </style>
 </head>
