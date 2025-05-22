@@ -85,13 +85,17 @@
             position: relative;
             background-color: #1e1e1e;
             border-radius: var(--b-radius);
-            padding: 1rem;
+            padding: 2.5rem 1rem 1rem;
             margin: 1.5rem 0;
+            overflow-x: auto;
         }
 
         .blog-post__content code {
             font-family: 'Consolas', 'Monaco', monospace;
             color: #d4d4d4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            display: block;
         }
 
         .copy-button {
@@ -106,17 +110,43 @@
             cursor: pointer;
             font-size: 1.2rem;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .copy-button:hover {
             background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .copy-button i {
+            font-size: 1.4rem;
         }
 
         /* 特殊字体样式 */
         .blog-post__content .special-text {
             font-family: 'Consolas', 'Monaco', monospace;
-            color: var(--color-primary);
+            color: #ff69b4; /* 粉色 */
             font-weight: var(--fw-medium);
+            background-color: rgba(255, 105, 180, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        /* 代码块标题 */
+        .code-block-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #2d2d2d;
+            color: #d4d4d4;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            border-top-left-radius: var(--b-radius);
+            border-top-right-radius: var(--b-radius);
+            border-bottom: 1px solid #3d3d3d;
         }
 
         /* 链接样式 */
@@ -278,8 +308,11 @@
                 const response = await fetch(postFile);
                 const text = await response.text();
                 
+                // 移除 frontmatter
+                const contentWithoutFrontmatter = text.replace(/^---[\s\S]*?---\n/, '');
+                
                 // 解析Markdown内容
-                const content = marked.parse(text);
+                const content = marked.parse(contentWithoutFrontmatter);
                 
                 // 提取标题和日期
                 const titleMatch = text.match(/title: "([^"]+)"/);
@@ -293,25 +326,31 @@
                 // 更新页面标题
                 document.title = `${titleMatch ? titleMatch[1] : '文章标题'} - YangHE`;
 
-                // 为代码块添加复制按钮
+                // 为代码块添加复制按钮和标题
                 document.querySelectorAll('pre').forEach((pre) => {
+                    // 添加代码块标题
+                    const title = document.createElement('div');
+                    title.className = 'code-block-title';
+                    title.textContent = '代码';
+                    pre.insertBefore(title, pre.firstChild);
+
+                    // 添加复制按钮
                     const button = document.createElement('button');
                     button.className = 'copy-button';
-                    button.textContent = '复制';
-                    pre.style.position = 'relative';
+                    button.innerHTML = '<i class="ri-file-copy-line"></i>复制';
                     pre.appendChild(button);
 
                     button.addEventListener('click', async () => {
                         const code = pre.querySelector('code').textContent;
                         try {
                             await navigator.clipboard.writeText(code);
-                            button.textContent = '已复制!';
+                            button.innerHTML = '<i class="ri-check-line"></i>已复制!';
                             setTimeout(() => {
-                                button.textContent = '复制';
+                                button.innerHTML = '<i class="ri-file-copy-line"></i>复制';
                             }, 2000);
                         } catch (err) {
                             console.error('复制失败:', err);
-                            button.textContent = '复制失败';
+                            button.innerHTML = '<i class="ri-close-line"></i>复制失败';
                         }
                     });
                 });
