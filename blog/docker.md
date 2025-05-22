@@ -44,7 +44,6 @@ Docker在Windows上的适配经历了三个阶段：第一个阶段是完全不�
 通过将下方的代码复制到记事本中，并另存为`enable_hyper_v.cmd`，之后直接右击该脚本，通过“管理员模式”运行。
 
 ````markdown mockup-code
-
 pushd "%~dp0"
 
 dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hyper-v.txt
