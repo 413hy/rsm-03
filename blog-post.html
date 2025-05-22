@@ -59,8 +59,17 @@
         }
         
         .blog-post__content h2 {
+            margin: 2.5rem 0 1.5rem;
+            color: var(--color-title);
+            font-size: 2.4rem;
+            font-weight: var(--fw-bold);
+        }
+        
+        .blog-post__content h4 {
             margin: 2rem 0 1rem;
             color: var(--color-title);
+            font-size: 1.8rem;
+            font-weight: var(--fw-semibold);
         }
         
         .blog-post__content p {
@@ -85,8 +94,8 @@
             position: relative;
             background-color: #1e1e1e;
             border-radius: var(--b-radius);
-            padding: 2.5rem 1rem 1rem;
-            margin: 1.5rem 0;
+            padding: 3rem 2rem 1.5rem;
+            margin: 2rem 0;
             overflow-x: auto;
         }
 
@@ -96,17 +105,18 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             display: block;
+            padding: 0 1rem;
         }
 
         .copy-button {
             position: absolute;
             top: 0.5rem;
             right: 0.5rem;
-            background-color: var(--color-primary);
-            color: white;
-            border: none;
+            background-color: #2d2d2d;
+            color: #d4d4d4;
+            border: 1px solid #3d3d3d;
             border-radius: 4px;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             cursor: pointer;
             font-size: 1.2rem;
             transition: var(--transition);
@@ -116,7 +126,7 @@
         }
 
         .copy-button:hover {
-            background-color: var(--color-primary-dark);
+            background-color: #3d3d3d;
             transform: translateY(-2px);
         }
 
@@ -156,11 +166,19 @@
             right: 0;
             background-color: #2d2d2d;
             color: #d4d4d4;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.5rem;
             font-size: 1.2rem;
             border-top-left-radius: var(--b-radius);
             border-top-right-radius: var(--b-radius);
             border-bottom: 1px solid #3d3d3d;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-block-title i {
+            font-size: 1.4rem;
+            color: #ff69b4;
         }
 
         /* 链接样式 */
@@ -345,26 +363,26 @@
                     // 添加代码块标题
                     const title = document.createElement('div');
                     title.className = 'code-block-title';
-                    title.textContent = '代码';
+                    title.innerHTML = '<i class="ri-code-line"></i>Code';
                     pre.insertBefore(title, pre.firstChild);
 
                     // 添加复制按钮
                     const button = document.createElement('button');
                     button.className = 'copy-button';
-                    button.innerHTML = '<i class="ri-file-copy-line"></i>复制';
+                    button.innerHTML = '<i class="ri-file-copy-line"></i>Copy';
                     pre.appendChild(button);
 
                     button.addEventListener('click', async () => {
                         const code = pre.querySelector('code').textContent;
                         try {
                             await navigator.clipboard.writeText(code);
-                            button.innerHTML = '<i class="ri-check-line"></i>已复制!';
+                            button.innerHTML = '<i class="ri-check-line"></i>Copied!';
                             setTimeout(() => {
-                                button.innerHTML = '<i class="ri-file-copy-line"></i>复制';
+                                button.innerHTML = '<i class="ri-file-copy-line"></i>Copy';
                             }, 2000);
                         } catch (err) {
                             console.error('复制失败:', err);
-                            button.innerHTML = '<i class="ri-close-line"></i>复制失败';
+                            button.innerHTML = '<i class="ri-close-line"></i>Failed';
                         }
                     });
                 });
