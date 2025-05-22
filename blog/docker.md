@@ -2,13 +2,6 @@
 title: "Docker environment"
 description: "What is Docker and how to install it"
 pubDate: " Mar 09 2025"
-image: /assets/img/blog1.jpg
-categories:
-  - tech
-tags:
-  - docker
-  - environment
-badge: Pin
 ---
 
 这边主要是配置Docker环境的内容（哪怕你的电脑不支持hyper-v，Dno't be intimidated,this article will guide you through the world of Docker.）

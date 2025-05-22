@@ -79,6 +79,58 @@
         .blog-post__back:hover {
             gap: 1rem;
         }
+
+        /* 代码块样式 */
+        .blog-post__content pre {
+            position: relative;
+            background-color: #1e1e1e;
+            border-radius: var(--b-radius);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .blog-post__content code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #d4d4d4;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .copy-button:hover {
+            background-color: var(--color-primary-dark);
+        }
+
+        /* 特殊字体样式 */
+        .blog-post__content .special-text {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: var(--color-primary);
+            font-weight: var(--fw-medium);
+        }
+
+        /* 链接样式 */
+        .blog-post__content a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--fw-medium);
+            transition: var(--transition);
+        }
+
+        .blog-post__content a:hover {
+            color: var(--color-primary-dark);
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -240,6 +292,36 @@
                 
                 // 更新页面标题
                 document.title = `${titleMatch ? titleMatch[1] : '文章标题'} - YangHE`;
+
+                // 为代码块添加复制按钮
+                document.querySelectorAll('pre').forEach((pre) => {
+                    const button = document.createElement('button');
+                    button.className = 'copy-button';
+                    button.textContent = '复制';
+                    pre.style.position = 'relative';
+                    pre.appendChild(button);
+
+                    button.addEventListener('click', async () => {
+                        const code = pre.querySelector('code').textContent;
+                        try {
+                            await navigator.clipboard.writeText(code);
+                            button.textContent = '已复制!';
+                            setTimeout(() => {
+                                button.textContent = '复制';
+                            }, 2000);
+                        } catch (err) {
+                            console.error('复制失败:', err);
+                            button.textContent = '复制失败';
+                        }
+                    });
+                });
+
+                // 处理特殊文本
+                document.querySelectorAll('code').forEach((code) => {
+                    if (code.parentElement.tagName !== 'PRE') {
+                        code.classList.add('special-text');
+                    }
+                });
             } catch (error) {
                 console.error('Error loading post:', error);
                 document.getElementById('post-content').innerHTML = '<p>加载文章失败，请稍后重试。</p>';
