@@ -94,7 +94,7 @@
             position: relative;
             background-color: #1e1e1e;
             border-radius: var(--b-radius);
-            padding: 3rem 2rem 1.5rem;
+            padding: 3.5rem 1.5rem 1.5rem;
             margin: 2rem 0;
             overflow-x: auto;
         }
@@ -105,7 +105,8 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             display: block;
-            padding: 0 1rem;
+            padding: 0 0.5rem;
+            line-height: 1.6;
         }
 
         .copy-button {
@@ -123,11 +124,13 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            z-index: 1;
         }
 
         .copy-button:hover {
             background-color: #3d3d3d;
             transform: translateY(-2px);
+            color: #fff;
         }
 
         .copy-button i {
@@ -174,11 +177,31 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            z-index: 0;
         }
 
         .code-block-title i {
             font-size: 1.4rem;
             color: #ff69b4;
+        }
+
+        /* 代码块滚动条样式 */
+        .blog-post__content pre::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .blog-post__content pre::-webkit-scrollbar-track {
+            background: #1e1e1e;
+            border-radius: 4px;
+        }
+
+        .blog-post__content pre::-webkit-scrollbar-thumb {
+            background: #3d3d3d;
+            border-radius: 4px;
+        }
+
+        .blog-post__content pre::-webkit-scrollbar-thumb:hover {
+            background: #4d4d4d;
         }
 
         /* 链接样式 */
