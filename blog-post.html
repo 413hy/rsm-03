@@ -91,16 +91,15 @@
 
         /* 代码块样式 */
         .blog-post__content pre {
+            position: relative;
             background: #23272f;
             border-radius: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             margin: 2rem 0;
             padding: 0;
-            overflow: auto;
-            position: relative;
             border: 1px solid #2d2d2d;
+            overflow: visible;
         }
-
         .code-block-header {
             display: flex;
             align-items: center;
@@ -109,12 +108,24 @@
             color: #fff;
             border-top-left-radius: 12px;
             border-top-right-radius: 12px;
-            padding: 0.6rem 1.2rem;
-            font-size: 1.1rem;
-            font-weight: 500;
+            padding: 0.7rem 1.5rem 0.7rem 2.5rem;
+            font-size: 1.18rem;
+            font-weight: 700;
             border-bottom: 1px solid #23272f;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            pointer-events: none;
         }
-
+        .code-block-header span {
+            font-family: 'JetBrains Mono', 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace';
+            font-size: 1.18rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            pointer-events: auto;
+        }
         .copy-button {
             background: #444a5a;
             color: #fff;
@@ -122,26 +133,46 @@
             border-radius: 6px;
             padding: 0.2rem 0.8rem;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.2s;
+            font-size: 1.1rem;
             margin-left: 1rem;
+            pointer-events: auto;
+            transition: background 0.2s;
         }
         .copy-button:hover {
             background: #5a5f73;
         }
-
-        .blog-post__content pre code {
-            display: block;
-            padding: 1.2rem 1.5rem;
-            font-size: 1.18rem;
+        .code-block-lines {
+            display: flex;
+            font-size: 1.25rem;
             font-family: 'JetBrains Mono', 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace';
             font-weight: 500;
+            line-height: 1.9;
+            padding: 2.5rem 1.5rem 1.5rem 0;
+            overflow-x: auto;
             background: none;
-            color: #d4d4d4;
             border-radius: 0 0 12px 12px;
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
-            font-smooth: always;
+            color: #d4d4d4;
+        }
+        .code-block-linenumbers {
+            user-select: none;
+            text-align: right;
+            color: #888fa1;
+            min-width: 2.5rem;
+            padding-right: 1rem;
+            background: transparent;
+            font-size: 1.1rem;
+            font-family: inherit;
+            border-right: 1px solid #2d2d2d;
+        }
+        .code-block-code {
+            white-space: pre;
+            flex: 1;
+            min-width: 0;
+            background: none;
+            font-size: inherit;
+            font-family: inherit;
+            color: inherit;
+            padding-left: 1rem;
         }
 
         /* 特殊字体样式 */
@@ -388,8 +419,12 @@
                 // 更新页面标题
                 document.title = `${titleMatch ? titleMatch[1] : '文章标题'} - YangHE`;
 
-                // 为代码块添加标题栏和复制按钮
+                // 为代码块添加标题栏、复制按钮和行号
                 document.querySelectorAll('pre').forEach((pre) => {
+                    const code = pre.querySelector('code');
+                    const codeText = code.textContent;
+                    const lines = codeText.split('\n');
+
                     // 创建标题栏
                     const header = document.createElement('div');
                     header.className = 'code-block-header';
@@ -406,9 +441,8 @@
 
                     // 复制功能
                     button.addEventListener('click', async () => {
-                        const code = pre.querySelector('code').textContent;
                         try {
-                            await navigator.clipboard.writeText(code);
+                            await navigator.clipboard.writeText(codeText);
                             button.innerHTML = '<i class="ri-check-line"></i>';
                             setTimeout(() => {
                                 button.innerHTML = '<i class="ri-file-copy-line"></i>';
@@ -417,6 +451,22 @@
                             button.innerHTML = '<i class="ri-close-line"></i>';
                         }
                     });
+
+                    // 构建带行号的代码区
+                    const linesWrapper = document.createElement('div');
+                    linesWrapper.className = 'code-block-lines';
+                    const linenumbers = document.createElement('div');
+                    linenumbers.className = 'code-block-linenumbers';
+                    linenumbers.innerHTML = lines.map((_, i) => i + 1).join('<br>');
+                    const codeblock = document.createElement('div');
+                    codeblock.className = 'code-block-code';
+                    codeblock.textContent = codeText;
+                    linesWrapper.appendChild(linenumbers);
+                    linesWrapper.appendChild(codeblock);
+
+                    // 清空原有 code 内容并插入新结构
+                    code.style.display = 'none';
+                    pre.appendChild(linesWrapper);
                 });
 
                 // 处理特殊文本
