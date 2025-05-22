@@ -91,50 +91,53 @@
 
         /* 代码块样式 */
         .blog-post__content pre {
-            position: relative;
-            background-color: #1e1e1e;
-            border-radius: var(--b-radius);
-            padding: 3.5rem 1.5rem 1.5rem;
+            background: #23272f;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             margin: 2rem 0;
-            overflow-x: auto;
+            padding: 0;
+            overflow: auto;
+            position: relative;
+            border: 1px solid #2d2d2d;
         }
 
-        .blog-post__content code {
-            font-family: 'Consolas', 'Monaco', monospace;
-            color: #d4d4d4;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            display: block;
-            padding: 0 0.5rem;
-            line-height: 1.6;
+        .code-block-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #2d2f3a;
+            color: #fff;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 0.6rem 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-bottom: 1px solid #23272f;
         }
 
         .copy-button {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background-color: #2d2d2d;
-            color: #d4d4d4;
-            border: 1px solid #3d3d3d;
-            border-radius: 4px;
-            padding: 0.4rem 0.8rem;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            z-index: 1;
-        }
-
-        .copy-button:hover {
-            background-color: #3d3d3d;
-            transform: translateY(-2px);
+            background: #444a5a;
             color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.2rem 0.8rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+            margin-left: 1rem;
+        }
+        .copy-button:hover {
+            background: #5a5f73;
         }
 
-        .copy-button i {
-            font-size: 1.4rem;
+        .blog-post__content pre code {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            font-size: 1rem;
+            background: none;
+            color: #d4d4d4;
+            border-radius: 0 0 12px 12px;
+            line-height: 1.7;
         }
 
         /* 特殊字体样式 */
@@ -381,31 +384,33 @@
                 // 更新页面标题
                 document.title = `${titleMatch ? titleMatch[1] : '文章标题'} - YangHE`;
 
-                // 为代码块添加复制按钮和标题
+                // 为代码块添加标题栏和复制按钮
                 document.querySelectorAll('pre').forEach((pre) => {
-                    // 添加代码块标题
-                    const title = document.createElement('div');
-                    title.className = 'code-block-title';
-                    title.innerHTML = '<i class="ri-code-line"></i>Code';
-                    pre.insertBefore(title, pre.firstChild);
+                    // 创建标题栏
+                    const header = document.createElement('div');
+                    header.className = 'code-block-header';
+                    header.innerHTML = '<span>MARKDOWN</span>';
 
-                    // 添加复制按钮
+                    // 创建复制按钮
                     const button = document.createElement('button');
                     button.className = 'copy-button';
-                    button.innerHTML = '<i class="ri-file-copy-line"></i>Copy';
-                    pre.appendChild(button);
+                    button.innerHTML = '<i class="ri-file-copy-line"></i>';
+                    header.appendChild(button);
 
+                    // 插入标题栏
+                    pre.insertBefore(header, pre.firstChild);
+
+                    // 复制功能
                     button.addEventListener('click', async () => {
                         const code = pre.querySelector('code').textContent;
                         try {
                             await navigator.clipboard.writeText(code);
-                            button.innerHTML = '<i class="ri-check-line"></i>Copied!';
+                            button.innerHTML = '<i class="ri-check-line"></i>';
                             setTimeout(() => {
-                                button.innerHTML = '<i class="ri-file-copy-line"></i>Copy';
+                                button.innerHTML = '<i class="ri-file-copy-line"></i>';
                             }, 2000);
-                        } catch (err) {
-                            console.error('复制失败:', err);
-                            button.innerHTML = '<i class="ri-close-line"></i>Failed';
+                        } catch {
+                            button.innerHTML = '<i class="ri-close-line"></i>';
                         }
                     });
                 });
