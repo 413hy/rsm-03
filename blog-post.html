@@ -278,6 +278,66 @@
             color: var(--color-primary-dark);
             text-decoration: underline;
         }
+
+        /* 表格样式 */
+        .blog-post__content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1.08em;
+            background: #23272f;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #3b3f51;
+        }
+        
+        .blog-post__content th, 
+        .blog-post__content td {
+            border: 1px solid #3b3f51;
+            padding: 0.75em 1em;
+            text-align: left;
+            color: #d4d4d4;
+            font-family: 'JetBrains Mono', 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace';
+            line-height: 1.5;
+        }
+        
+        .blog-post__content th {
+            background: #2d2d3a;
+            font-weight: 700;
+            color: #ff69b4;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.95em;
+        }
+        
+        .blog-post__content tr:nth-child(even) {
+            background: #262a33;
+        }
+        
+        .blog-post__content tr:nth-child(odd) {
+            background: #23272f;
+        }
+        
+        .blog-post__content tr:hover {
+            background: #2d2d3a;
+        }
+        
+        .blog-post__content table {
+            margin-bottom: 2.5rem;
+        }
+        
+        /* 确保表格在移动设备上也能正常显示 */
+        @media screen and (max-width: 768px) {
+            .blog-post__content table {
+                font-size: 0.95em;
+            }
+            
+            .blog-post__content th, 
+            .blog-post__content td {
+                padding: 0.6em 0.8em;
+            }
+        }
     </style>
 </head>
 
