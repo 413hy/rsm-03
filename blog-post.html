@@ -290,6 +290,7 @@
             overflow: hidden;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             border: 1px solid #3b3f51;
+            table-layout: fixed;
         }
         
         .blog-post__content th, 
@@ -300,6 +301,29 @@
             color: #d4d4d4;
             font-family: 'JetBrains Mono', 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace';
             line-height: 1.5;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* 设置各列的宽度比例 */
+        .blog-post__content table th:nth-child(1),
+        .blog-post__content table td:nth-child(1) {
+            width: 15%;
+        }
+        
+        .blog-post__content table th:nth-child(2),
+        .blog-post__content table td:nth-child(2) {
+            width: 15%;
+        }
+        
+        .blog-post__content table th:nth-child(3),
+        .blog-post__content table td:nth-child(3) {
+            width: 45%;
+        }
+        
+        .blog-post__content table th:nth-child(4),
+        .blog-post__content table td:nth-child(4) {
+            width: 25%;
         }
         
         .blog-post__content th {
@@ -309,6 +333,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             font-size: 0.95em;
+            white-space: nowrap;
         }
         
         .blog-post__content tr:nth-child(even) {
@@ -336,6 +361,27 @@
             .blog-post__content th, 
             .blog-post__content td {
                 padding: 0.6em 0.8em;
+            }
+            
+            /* 移动端调整列宽 */
+            .blog-post__content table th:nth-child(1),
+            .blog-post__content table td:nth-child(1) {
+                width: 20%;
+            }
+            
+            .blog-post__content table th:nth-child(2),
+            .blog-post__content table td:nth-child(2) {
+                width: 20%;
+            }
+            
+            .blog-post__content table th:nth-child(3),
+            .blog-post__content table td:nth-child(3) {
+                width: 35%;
+            }
+            
+            .blog-post__content table th:nth-child(4),
+            .blog-post__content table td:nth-child(4) {
+                width: 25%;
             }
         }
     </style>
