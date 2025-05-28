@@ -47,30 +47,30 @@ function addActiveLink() {
 window.addEventListener("scroll", addActiveLink);
 
 // increment counter
-function startCounter(counter) {
+// function startCounter(counter) {
   // Get the target number
-  const targetNumber = counter.getAttribute("data-target");
-  const increment = setInterval(() => {
-    counter.textContent++;
+// const targetNumber = counter.getAttribute("data-target");
+//  const increment = setInterval(() => {
+//    counter.textContent++;
 
-    if (counter.textContent == targetNumber) {
-      clearInterval(increment);
-    }
-  }, 2000 / targetNumber);
-}
+//     if (counter.textContent == targetNumber) {
+//       clearInterval(increment);
+//     }
+//   }, 2000 / targetNumber);
+// }
 
-const counterSection = document.querySelector(".counter");
-const counters = document.querySelectorAll(".counter__number");
-let started = false;
+// const counterSection = document.querySelector(".counter");
+// const counters = document.querySelectorAll(".counter__number");
+// let started = false;
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY >= counterSection.offsetTop - 400) {
-    if (!started) {
-      counters.forEach((counter) => startCounter(counter));
-    }
-    started = true;
-  }
-});
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY >= counterSection.offsetTop - 400) {
+//     if (!started) {
+//       counters.forEach((counter) => startCounter(counter));
+//     }
+//     started = true;
+//   }
+// });
 
 // Testimonial Swiper
 
