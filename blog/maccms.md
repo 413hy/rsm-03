@@ -156,16 +156,16 @@ vim maccms.php
 ## 八、推荐资源站 & 模板
 
 ### CMS系统
-- [苹果CMS V10](https://www.maccms.la/)
-- [海洋CMS](https://www.seacms.net/)
-- [飞飞CMS 5.0](http://www.feifeicms.vip/portal.php)
-- [赞片CMS](https://www.zanpiancms.com/)
+- [苹果CMS V10](https://www.maccms.la/)：https://www.maccms.la/
+- [海洋CMS](https://www.seacms.net/)：https://www.seacms.net/
+- [飞飞CMS 5.0](http://www.feifeicms.vip/portal.php)：http://www.feifeicms.vip/portal.php
+- [赞片CMS](https://www.zanpiancms.com/)：https://www.zanpiancms.com/
 
 ### 采集接口
-- [暴风采集](https://publish.bfzy.tv/)
-- [非凡采集](http://ffzy5.tv/)
-- [快看采集](https://kuaikanzy.net/)
-- [乐视采集](https://www.leshizy1.com/)
+- [暴风采集](https://publish.bfzy.tv/)：https://publish.bfzy.tv/
+- [非凡采集](http://ffzy5.tv/)：http://ffzy5.tv/
+- [快看采集](https://kuaikanzy.net/)：https://kuaikanzy.net/
+- [乐视采集](https://www.leshizy1.com/)：https://www.leshizy1.com/
 
 ---
 
