@@ -42,8 +42,11 @@ sudo chmod -R 777 html
 ```
 
 > **访问地址**：在浏览器中访问 `http://你的服务器IP` 进入安装界面。
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/1796422294.png)
 
 > **注意**：安装界面中提示部分目录权限不足，请根据红色提示信息修改权限。
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/120094303.png)
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/670701090.png)
 
 ---
 
@@ -70,7 +73,8 @@ sudo service apache2 restart
    extension=zip
    extension=xml
    ```
-
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/1513967122.png)
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/3845578306.png)
 ---
 
 ## 四、安装数据库
@@ -78,7 +82,7 @@ sudo service apache2 restart
 你可以使用本地或远程数据库，安装完成后配置连接信息即可。
 
 > 🔗 若需远程访问数据库，请确保 MySQL 已开启远程连接权限，并开放 3306 端口。
-
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/539128736.png)
 ---
 
 ## 五、后台管理与功能配置
@@ -86,6 +90,7 @@ sudo service apache2 restart
 ### 进入后台
 
 安装完成后，访问后台地址 `http://你的IP/admin.php`，登录管理系统。
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/4218347839.png)
 
 ### 采集设置
 
@@ -96,17 +101,22 @@ http://cj.ffzyapi.com/api.php/provide/vod/from/ffm3u8/at/xml/
 ```
 
 将接口地址填入后台采集配置中即可开始数据采集。
-
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/791380784.png)
 ### 编辑分类与绑定
 
-点击后台“分类管理”，可根据需求自定义影视分类，并与采集源进行绑定。
+点击后台“分类管理”，可根据需求自定义影视分类
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/392450111.png)
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/3766457985.png)
 
+将采集到的资源绑定到指定分类。
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/1565322967.png)
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/718865274.png)
 ---
 
 ## 六、播放器配置
 
 完成采集后，请按模板说明配置播放器解码方式和解析规则，确保能正常在线播放视频资源。
-
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/2281502209.png)
 ---
 
 ## 七、常见问题解决
@@ -132,7 +142,7 @@ chmod -R 777 /var/www/html/application/data/install/
 cd /var/www/html/application/extra/
 vim maccms.php
 ```
-
+![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/3756876953.png)
 将配置项 `admin_login_verify` 的值改为 `0` 可暂时关闭验证码：
 
 ```php
