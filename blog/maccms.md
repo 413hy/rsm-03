@@ -7,7 +7,7 @@
 
 - 项目地址：[https://github.com/magicblack/maccms10](https://github.com/magicblack/maccms10)
 
-> ⚠️ 本教程仅供技术学习参考，所采集内容均来自公开网络。请合法使用，避免法律风险。
+⚠️ 本教程仅供技术学习参考，所采集内容均来自公开网络。请合法使用，避免法律风险。
 
 ---
 
@@ -41,10 +41,10 @@ mv maccms10-2023.1000.3052/ html/
 sudo chmod -R 777 html
 ```
 
-> **访问地址**：在浏览器中访问 `http://你的服务器IP` 进入安装界面。
+**访问地址**：在浏览器中访问 `http://你的服务器IP` 进入安装界面。
 ![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/1796422294.png)
 
-> **注意**：安装界面中提示部分目录权限不足，请根据红色提示信息修改权限。
+**注意**：安装界面中提示部分目录权限不足，请根据红色提示信息修改权限。
 ![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/120094303.png)
 ![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/670701090.png)
 
@@ -81,7 +81,7 @@ sudo service apache2 restart
 
 你可以使用本地或远程数据库，安装完成后配置连接信息即可。
 
-> 🔗 若需远程访问数据库，请确保 MySQL 已开启远程连接权限，并开放 3306 端口。
+🔗 若需远程访问数据库，请确保 MySQL 已开启远程连接权限，并开放 3306 端口。
 ![docker placeholder](https://blog.hgtrojan.com/usr/uploads/2024/02/539128736.png)
 ---
 
@@ -149,7 +149,7 @@ vim maccms.php
 'admin_login_verify' => 0
 ```
 
-> ⚠️ **安全警告**：关闭验证码可能被暴力破解，请在配置完成后重新开启，或通过修改 `admin.php` 文件名加强保护。
+⚠️ **安全警告**：关闭验证码可能被暴力破解，请在配置完成后重新开启，或通过修改 `admin.php` 文件名加强保护。
 
 ---
 

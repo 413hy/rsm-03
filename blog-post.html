@@ -522,24 +522,26 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         // 主题切换功能
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
 
-        // 检查本地存储中的主题设置
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            body.classList.toggle('dark-theme', savedTheme === 'dark');
-            themeToggle.classList.toggle('ri-sun-line', savedTheme === 'dark');
-            themeToggle.classList.toggle('ri-moon-line', savedTheme !== 'dark');
-        }
+            // 检查本地存储中的主题设置
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.toggle('dark-theme', savedTheme === 'dark');
+                themeToggle.classList.toggle('ri-sun-line', savedTheme === 'dark');
+                themeToggle.classList.toggle('ri-moon-line', savedTheme !== 'dark');
+            }
 
-        // 主题切换事件监听
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            const isDark = body.classList.contains('dark-theme');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            themeToggle.classList.toggle('ri-sun-line', isDark);
-            themeToggle.classList.toggle('ri-moon-line', !isDark);
+            // 主题切换事件监听
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                const isDark = body.classList.contains('dark-theme');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                themeToggle.classList.toggle('ri-sun-line', isDark);
+                themeToggle.classList.toggle('ri-moon-line', !isDark);
+            });
         });
 
         // 获取URL参数
@@ -548,8 +550,16 @@
 
         // 加载文章内容
         async function loadPost() {
+            if (!postFile) {
+                document.getElementById('post-content').innerHTML = '<p>未找到文章。</p>';
+                return;
+            }
+
             try {
                 const response = await fetch(postFile);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const text = await response.text();
                 
                 // 移除 frontmatter
@@ -573,6 +583,8 @@
                 // 为代码块添加标题栏、复制按钮和行号
                 document.querySelectorAll('pre').forEach((pre) => {
                     const code = pre.querySelector('code');
+                    if (!code) return;
+
                     let codeText = code.textContent;
                     // 去除结尾多余空行，保证行号和代码一一对应
                     codeText = codeText.replace(/\n+$/, '');
