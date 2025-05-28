@@ -1,3 +1,8 @@
+---
+title: "MACcms10"
+description: "基于 PHP + MySQL 的苹果CMS系统，快速搭建属于自己的个人影视站点。一个适合初学者快速上手的搭建教程。"
+pubDate: " Mar 29 2025"
+---
 
 # 苹果CMS 影视站搭建教程
 

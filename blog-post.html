@@ -40,7 +40,7 @@
         }
         
         .blog-post__meta {
-            color: var(--color-gray);
+            color: var(--color-text);
             font-size: var(--fs-sm);
             margin-bottom: 2rem;
         }
@@ -48,7 +48,7 @@
         .blog-post__content {
             font-size: var(--fs-md);
             line-height: 1.8;
-            color: var(--color-gray);
+            color: var(--color-text);
         }
         
         .blog-post__content img {
@@ -92,20 +92,20 @@
         /* 代码块样式 */
         .blog-post__content pre {
             position: relative;
-            background: #23272f;
+            background: var(--color-card);
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             margin: 2rem 0;
             padding: 0;
-            border: 1px solid #2d2d2d;
+            border: 1px solid var(--color-border);
             overflow: visible;
         }
         .code-block-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #3b3f51;
-            color: #fff;
+            background: var(--color-card-hover);
+            color: var(--color-text);
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
             padding: 0.9rem 1.8rem 0.9rem 2.5rem;
@@ -126,14 +126,14 @@
             font-weight: 700;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #fff;
+            color: var(--color-text);
             line-height: 1;
             user-select: none;
         }
         .copy-button {
             background: transparent;
-            color: #cfd2e3;
-            border: 1.5px solid #cfd2e3;
+            color: var(--color-text);
+            border: 1.5px solid var(--color-border);
             border-radius: 8px;
             padding: 0.18rem 0.7rem;
             cursor: pointer;
@@ -146,9 +146,9 @@
             gap: 0.3rem;
         }
         .copy-button:hover {
-            background: #50546a;
-            color: #fff;
-            border-color: #fff;
+            background: var(--color-card-hover);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
         }
         .copy-button i {
             font-size: 1.2rem;
@@ -160,15 +160,15 @@
             font-weight: 500;
             line-height: 2.1;
             padding: 48px 1.5rem 1.5rem 0;
-            background: #23272f;
+            background: var(--color-card);
             border-radius: 16px;
-            color: #d4d4d4;
+            color: var(--color-text);
             overflow: hidden;
         }
         .code-block-linenumbers {
             user-select: none;
             text-align: right;
-            color: #888fa1;
+            color: var(--color-text-light);
             min-width: 2.5rem;
             padding-right: 1rem;
             background: transparent;
@@ -199,13 +199,13 @@
             background: transparent;
         }
         .code-block-code::-webkit-scrollbar-thumb {
-            background: #444a5a;
+            background: var(--color-border);
             border-radius: 999px;
-            border: 2px solid #23272f;
+            border: 2px solid var(--color-card);
             min-width: 40px;
         }
         .code-block-code::-webkit-scrollbar-thumb:hover {
-            background: #5a5f73;
+            background: var(--color-card-hover);
         }
         .code-block-code::-webkit-scrollbar-track {
             background: transparent;
@@ -214,16 +214,16 @@
         
         /* Firefox */
         .code-block-code {
-            scrollbar-color: #444a5a #23272f;
+            scrollbar-color: var(--color-border) var(--color-card);
             scrollbar-width: thin;
         }
 
         /* 特殊字体样式 */
         .blog-post__content .special-text {
             font-family: 'Consolas', 'Monaco', monospace;
-            color: #ff69b4; /* 粉色 */
+            color: var(--color-primary);
             font-weight: var(--fw-medium);
-            background-color: rgba(255, 105, 180, 0.1);
+            background-color: var(--color-card-hover);
             padding: 0.1rem 0.3rem;
             border-radius: 3px;
             display: inline-block;
@@ -248,13 +248,13 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: #2d2d2d;
-            color: #d4d4d4;
+            background-color: var(--color-card-hover);
+            color: var(--color-text);
             padding: 0.5rem 1.5rem;
             font-size: 1.2rem;
             border-top-left-radius: var(--b-radius);
             border-top-right-radius: var(--b-radius);
-            border-bottom: 1px solid #3d3d3d;
+            border-bottom: 1px solid var(--color-border);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -263,7 +263,7 @@
 
         .code-block-title i {
             font-size: 1.4rem;
-            color: #ff69b4;
+            color: var(--color-primary);
         }
 
         /* 链接样式 */
@@ -285,20 +285,20 @@
             border-collapse: collapse;
             margin: 2rem 0;
             font-size: 1.08em;
-            background: #23272f;
+            background: var(--color-card);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            border: 1px solid #3b3f51;
+            border: 1px solid var(--color-border);
             table-layout: fixed;
         }
         
         .blog-post__content th, 
         .blog-post__content td {
-            border: 1px solid #3b3f51;
+            border: 1px solid var(--color-border);
             padding: 0.75em 1em;
             text-align: left;
-            color: #d4d4d4;
+            color: var(--color-text);
             font-family: 'JetBrains Mono', 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace';
             line-height: 1.5;
             word-break: break-word;
@@ -327,9 +327,9 @@
         }
         
         .blog-post__content th {
-            background: #2d2d3a;
+            background: var(--color-card-hover);
             font-weight: 700;
-            color: #ff69b4;
+            color: var(--color-primary);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             font-size: 0.95em;
@@ -337,15 +337,15 @@
         }
         
         .blog-post__content tr:nth-child(even) {
-            background: #262a33;
+            background: var(--color-card-hover);
         }
         
         .blog-post__content tr:nth-child(odd) {
-            background: #23272f;
+            background: var(--color-card);
         }
         
         .blog-post__content tr:hover {
-            background: #2d2d3a;
+            background: var(--color-card-hover);
         }
         
         .blog-post__content table {

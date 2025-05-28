@@ -1,7 +1,7 @@
 ---
 title: "posteio mailserver guide"
 description: "个人企业级邮件服务器搭建指南"
-pubDate: " Mar 09 2025"
+pubDate: " Apr 16 2025"
 ---
 
 # Poste.io 个人邮件服务器搭建指南
