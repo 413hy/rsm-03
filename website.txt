@@ -14,7 +14,7 @@ Contact
 /* Home
 --------------------------------------------------
 
-I Am <span class="home__name">Natasha</span><br>
+I Am <span class="home__name">HEYang</span><br>
 UI/UX Designer<br>
 & Developer
 
